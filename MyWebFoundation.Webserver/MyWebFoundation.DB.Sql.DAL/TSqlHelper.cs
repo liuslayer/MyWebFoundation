@@ -1,5 +1,5 @@
 ﻿using MyWebFoundation.Framework.Extensions;
-using MyWebFoundation.Framework.Model;
+using MyWebFoundation.Framework.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
