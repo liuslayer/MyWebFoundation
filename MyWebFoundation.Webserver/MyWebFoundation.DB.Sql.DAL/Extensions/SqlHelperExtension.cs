@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyWebFoundation.Framework.Extensions
+namespace MyWebFoundation.DB.Sql.DAL.Extensions
 {
     public static class SqlHelperExtension
     {

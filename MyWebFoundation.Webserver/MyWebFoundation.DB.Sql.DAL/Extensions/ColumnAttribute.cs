@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyWebFoundation.Framework.Attributes
+namespace MyWebFoundation.DB.Sql.DAL.Extensions
 {
     [AttributeUsage(AttributeTargets.Property)]
     public class ColumnAttribute : Attribute

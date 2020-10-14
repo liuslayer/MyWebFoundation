@@ -1,4 +1,5 @@
-﻿using MyWebFoundation.DB.Sql.IDAL;
+﻿using MyWebFoundation.DB.Sql.DAL.Extensions;
+using MyWebFoundation.DB.Sql.IDAL;
 using MyWebFoundation.Framework.Config;
 using MyWebFoundation.Framework.Extensions;
 using MyWebFoundation.Framework.Models;

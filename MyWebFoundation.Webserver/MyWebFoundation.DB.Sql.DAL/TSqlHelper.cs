@@ -1,4 +1,5 @@
-﻿using MyWebFoundation.Framework.Extensions;
+﻿using MyWebFoundation.DB.Sql.DAL.Extensions;
+using MyWebFoundation.Framework.Extensions;
 using MyWebFoundation.Framework.Models;
 using System;
 using System.Collections.Generic;

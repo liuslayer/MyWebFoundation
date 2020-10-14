@@ -42,6 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseDAL.cs" />
+    <Compile Include="Extensions\ColumnAttribute.cs" />
+    <Compile Include="Extensions\SqlHelperExtension.cs" />
+    <Compile Include="Extensions\TableAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TSqlHelper.cs" />
   </ItemGroup>
