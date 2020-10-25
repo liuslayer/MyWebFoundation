@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace MyWebFoundation.Framework.Models
 {
-    public class BaseModel
+    public class BaseModel<TKey>
     {
-        public int Id { get; set; }
+        public TKey Id { get; set; }
     }
 }

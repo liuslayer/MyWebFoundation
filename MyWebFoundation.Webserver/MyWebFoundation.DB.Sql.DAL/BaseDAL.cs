@@ -21,10 +21,10 @@ namespace MyWebFoundation.DB.Sql.DAL
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="id"></param>
-        public T Find<T>(int id) where T : BaseModel
+        public T Find<T,TKey>(int id) where T : BaseModel<TKey>
         {
             Type type = typeof(T);
-            string sql = $"{TSqlHelper<T>.FindSql}{id};";
+            string sql = $"{TSqlHelper<T,TKey>.FindSql}{id};";
             T t = null;
             using (SqlConnection conn = new SqlConnection(AppConfig.SqlServerConnString))
             {
@@ -32,7 +32,7 @@ namespace MyWebFoundation.DB.Sql.DAL
                 {
                     conn.Open();
                     SqlDataReader reader = command.ExecuteReader();
-                    List<T> list = this.ReaderToList<T>(reader);
+                    List<T> list = this.ReaderToList<T, TKey>(reader);
                     t = list.FirstOrDefault();
                 }
                 //SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -45,10 +45,10 @@ namespace MyWebFoundation.DB.Sql.DAL
             return t;
         }
 
-        public List<T> FindAll<T>() where T : BaseModel
+        public List<T> FindAll<T, TKey>() where T : BaseModel<TKey>
         {
             Type type = typeof(T);
-            string sql = TSqlHelper<T>.FindAllSql;
+            string sql = TSqlHelper<T, TKey>.FindAllSql;
             List<T> list = new List<T>();
             using (SqlConnection conn = new SqlConnection(AppConfig.SqlServerConnString))
             {
@@ -56,13 +56,13 @@ namespace MyWebFoundation.DB.Sql.DAL
                 {
                     conn.Open();
                     SqlDataReader reader = command.ExecuteReader();
-                    list = this.ReaderToList<T>(reader);
+                    list = this.ReaderToList<T, TKey>(reader);
                 }
             }
             return list;
         }
 
-        public void Update<T>(T t) where T : BaseModel
+        public void Update<T, TKey>(T t) where T : BaseModel<TKey>
         {
             if (!t.Validate<T>())
             {
@@ -88,7 +88,7 @@ namespace MyWebFoundation.DB.Sql.DAL
             }
         }
 
-        public void Insert<T>(T t) where T : BaseModel
+        public void Insert<T, TKey>(T t) where T : BaseModel<TKey>
         {
             if (!t.Validate<T>())
             {
@@ -115,7 +115,7 @@ namespace MyWebFoundation.DB.Sql.DAL
             }
         }
 
-        public void Delete<T>(int id) where T : BaseModel
+        public void Delete<T, TKey>(int id) where T : BaseModel<TKey>
         {
             Type type = typeof(T);
             string sql = $"DELETE FROM [{type.Name}] WHERE Id={id}";
@@ -223,7 +223,7 @@ namespace MyWebFoundation.DB.Sql.DAL
             e.Status = UpdateStatus.Continue;
         }
 
-        private List<T> ReaderToList<T>(SqlDataReader reader) where T : BaseModel
+        private List<T> ReaderToList<T,TKey>(SqlDataReader reader) where T : BaseModel<TKey>
         {
             Type type = typeof(T);
             List<T> list = new List<T>();
@@ -242,7 +242,7 @@ namespace MyWebFoundation.DB.Sql.DAL
             return list;
         }
 
-        private List<T> ReaderToList<T>(DataTable table) where T : BaseModel
+        private List<T> ReaderToList<T, TKey>(DataTable table) where T : BaseModel<TKey>
         {
             Type type = typeof(T);
             List<T> list = new List<T>();

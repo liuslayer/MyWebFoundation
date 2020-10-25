@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MyWebFoundation.DB.Sql.DAL
 {
-    public class TSqlHelper<T> where T : BaseModel
+    public class TSqlHelper<T,TKey> where T : BaseModel<TKey>
     {
         static TSqlHelper()
         {

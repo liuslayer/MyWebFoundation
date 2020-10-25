@@ -5,7 +5,6 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using MyWebFoundation.Framework.Logs;
 
 namespace MyWebFoundation.Framework.Extensions
 {

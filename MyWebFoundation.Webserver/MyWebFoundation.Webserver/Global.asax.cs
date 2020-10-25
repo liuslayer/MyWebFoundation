@@ -1,4 +1,5 @@
 ﻿using MyWebFoundation.Framework.Factories;
+using MyWebFoundation.Webserver.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using MyWebFoundation.Framework.Extensions;
 
 namespace MyWebFoundation.Webserver
 {
@@ -19,7 +21,8 @@ namespace MyWebFoundation.Webserver
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            ContainerFactory.CreateContainer();
+            ControllerBuilder.Current.SetControllerFactory(new MyControllerFactory());
+            this.GetType().Info(System.Reflection.MethodBase.GetCurrentMethod().Name, "程序启动");
         }
     }
 }

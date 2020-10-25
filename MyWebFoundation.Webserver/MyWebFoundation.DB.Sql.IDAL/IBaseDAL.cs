@@ -15,15 +15,15 @@ namespace MyWebFoundation.DB.Sql.IDAL
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="id"></param>
-        T Find<T>(int id) where T : BaseModel;
+        T Find<T, TKey>(int id) where T : BaseModel<TKey>;
 
-        List<T> FindAll<T>() where T : BaseModel;
+        List<T> FindAll<T, TKey>() where T : BaseModel<TKey>;
 
-        void Update<T>(T t) where T : BaseModel;
+        void Update<T, TKey>(T t) where T : BaseModel<TKey>;
 
-        void Insert<T>(T t) where T : BaseModel;
+        void Insert<T, TKey>(T t) where T : BaseModel<TKey>;
 
-        void Delete<T>(int id) where T : BaseModel;
+        void Delete<T, TKey>(int id) where T : BaseModel<TKey>;
 
 
     }
