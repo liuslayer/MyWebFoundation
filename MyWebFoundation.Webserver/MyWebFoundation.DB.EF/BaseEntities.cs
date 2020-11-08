@@ -80,17 +80,23 @@ namespace MyWebFoundation.DB.EF
         /// </summary>
         /// <param name="t"></param>
         /// <returns></returns>
-        public T Insert(T t)
+        public T Insert(T t, bool isTransaction = false)
         {
             this.Context.Set<T>().Add(t);
-            this.Commit();
+            if (!isTransaction)
+            {
+                this.Commit();
+            }
             return t;
         }
 
-        public IEnumerable<T> Insert(IEnumerable<T> tList)
+        public IEnumerable<T> Insert(IEnumerable<T> tList, bool isTransaction = false)
         {
             this.Context.Set<T>().AddRange(tList);
-            this.Commit();//一个链接  多个sql
+            if (!isTransaction)
+            {
+                this.Commit();
+            }//一个链接  多个sql
             return tList;
         }
         #endregion
@@ -102,13 +108,16 @@ namespace MyWebFoundation.DB.EF
         /// 如果是已经在context，只能再封装一个(在具体的service)
         /// </summary>
         /// <param name="t"></param>
-        public void Update(T t)
+        public void Update(T t, bool isTransaction = false)
         {
             if (t == null) throw new Exception("t is null");
 
             this.Context.Set<T>().Attach(t);//将数据附加到上下文，支持实体修改和新实体，重置为UnChanged
             this.Context.Entry<T>(t).State = EntityState.Modified;
-            this.Commit();//保存 然后重置为UnChanged
+            if (!isTransaction)
+            {
+                this.Commit();
+            }//保存 然后重置为UnChanged
         }
 
         /*
@@ -139,14 +148,17 @@ namespace MyWebFoundation.DB.EF
         Modified = 16,
     }
          */
-        public void Update(IEnumerable<T> tList)
+        public void Update(IEnumerable<T> tList, bool isTransaction = false)
         {
             foreach (var t in tList)
             {
                 this.Context.Set<T>().Attach(t);
                 this.Context.Entry<T>(t).State = EntityState.Modified;
             }
-            this.Commit();
+            if (!isTransaction)
+            {
+                this.Commit();
+            }
         }
 
         #endregion
@@ -156,12 +168,15 @@ namespace MyWebFoundation.DB.EF
         /// 先附加 再删除
         /// </summary>
         /// <param name="t"></param>
-        public void Delete(T t)
+        public void Delete(T t, bool isTransaction = false)
         {
             if (t == null) throw new Exception("t is null");
             this.Context.Set<T>().Attach(t);
             this.Context.Set<T>().Remove(t);
-            this.Commit();
+            if (!isTransaction)
+            {
+                this.Commit();
+            }
         }
 
         /// <summary>
@@ -170,22 +185,28 @@ namespace MyWebFoundation.DB.EF
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="Id"></param>
-        public void Delete(int Id)
+        public void Delete(int Id, bool isTransaction = false)
         {
             T t = this.Find(Id);//也可以附加
             if (t == null) throw new Exception("t is null");
             this.Context.Set<T>().Remove(t);
-            this.Commit();
+            if (!isTransaction)
+            {
+                this.Commit();
+            }
         }
 
-        public void Delete(IEnumerable<T> tList)
+        public void Delete(IEnumerable<T> tList, bool isTransaction = false)
         {
             foreach (var t in tList)
             {
                 this.Context.Set<T>().Attach(t);
             }
             this.Context.Set<T>().RemoveRange(tList);
-            this.Commit();
+            if (!isTransaction)
+            {
+                this.Commit();
+            }
         }
         #endregion
 

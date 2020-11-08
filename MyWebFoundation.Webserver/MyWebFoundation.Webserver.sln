@@ -31,6 +31,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyWebFoundation.Test.Interf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyWebFoundation.Test.Data", "MyWebFoundation.Test.Data\MyWebFoundation.Test.Data.csproj", "{9D5A07F2-4195-4AB9-9483-717C82644400}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dapper", "Dapper", "{1F387DF9-752F-40E0-B174-F28A84D196CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyWebFoundation.DB.Dapper", "MyWebFoundation.DB.Dapper\MyWebFoundation.DB.Dapper.csproj", "{C1460E31-51CF-4705-A303-12F036752190}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +77,10 @@ Global
 		{9D5A07F2-4195-4AB9-9483-717C82644400}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D5A07F2-4195-4AB9-9483-717C82644400}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D5A07F2-4195-4AB9-9483-717C82644400}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1460E31-51CF-4705-A303-12F036752190}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1460E31-51CF-4705-A303-12F036752190}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1460E31-51CF-4705-A303-12F036752190}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1460E31-51CF-4705-A303-12F036752190}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -87,6 +95,8 @@ Global
 		{F7A711A7-BF2B-4758-939F-E2ACE5EF48F5} = {7CEA7085-5C0F-47BD-A15B-CF910A9B52F3}
 		{DA7C7446-363B-46E7-A091-662AB86EC7D1} = {7CEA7085-5C0F-47BD-A15B-CF910A9B52F3}
 		{9D5A07F2-4195-4AB9-9483-717C82644400} = {7CEA7085-5C0F-47BD-A15B-CF910A9B52F3}
+		{1F387DF9-752F-40E0-B174-F28A84D196CB} = {DE57239C-118D-43EE-80E5-B48D7915E776}
+		{C1460E31-51CF-4705-A303-12F036752190} = {1F387DF9-752F-40E0-B174-F28A84D196CB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0A4AD225-BCBC-42EC-94CD-0BB685336855}

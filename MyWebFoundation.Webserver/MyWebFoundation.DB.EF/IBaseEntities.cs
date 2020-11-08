@@ -50,7 +50,7 @@ namespace MyWebFoundation.DB.EF
         /// </summary>
         /// <param name="t"></param>
         /// <returns>返回带主键的实体</returns>
-        T Insert(T t);
+        T Insert(T t,bool isTransaction);
 
         /// <summary>
         /// 新增数据，即时Commit
@@ -58,37 +58,37 @@ namespace MyWebFoundation.DB.EF
         /// </summary>
         /// <param name="tList"></param>
         /// <returns>返回带主键的集合</returns>
-        IEnumerable<T> Insert(IEnumerable<T> tList);
+        IEnumerable<T> Insert(IEnumerable<T> tList, bool isTransaction);
 
         /// <summary>
         /// 更新数据，即时Commit
         /// </summary>
         /// <param name="t"></param>
-        void Update(T t);
+        void Update(T t, bool isTransaction);
 
         /// <summary>
         /// 更新数据，即时Commit
         /// </summary>
         /// <param name="tList"></param>
-        void Update(IEnumerable<T> tList);
+        void Update(IEnumerable<T> tList, bool isTransaction);
 
         /// <summary>
         /// 根据主键删除数据，即时Commit
         /// </summary>
         /// <param name="t"></param>
-        void Delete(int Id);
+        void Delete(int Id, bool isTransaction);
 
         /// <summary>
         /// 删除数据，即时Commit
         /// </summary>
         /// <param name="t"></param>
-        void Delete(T t);
+        void Delete(T t, bool isTransaction);
 
         /// <summary>
         /// 删除数据，即时Commit
         /// </summary>
         /// <param name="tList"></param>
-        void Delete(IEnumerable<T> tList);
+        void Delete(IEnumerable<T> tList, bool isTransaction);
 
         /// <summary>
         /// 立即保存全部修改

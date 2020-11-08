@@ -13,11 +13,11 @@ namespace MyWebFoundation.Test.Bussiness
     internal class UserDepartModule : IUserDepartModule
     {
 
-        public UserDepartModule(DbContext context)
+        public UserDepartModule()
         {
-            Context = context;
-            DepartmentList = new DepartmentList(context);
-            UserList = new UserList(context);
+            Context = new TestDBContext("TestDBContext");
+            DepartmentList = new DepartmentList(Context);
+            UserList = new UserList(Context);
         }
         protected DbContext Context { get; private set; }
         public IDepartmentList DepartmentList { get; private set; }
@@ -29,7 +29,6 @@ namespace MyWebFoundation.Test.Bussiness
             {
                 tb_Department department = DepartmentList.Find(id);
                 List<tb_User> userList = UserList.Query(_ => _.DepartmentId == id).ToList();
-                department.tb_Users.First();
                 department.tb_Users = userList;
                 return department;
             }

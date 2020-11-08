@@ -7,8 +7,8 @@ namespace MyWebFoundation.Test.Data
 
     public partial class TestDBContext : DbContext
     {
-        public TestDBContext()
-            : base("name=TestDBContext")
+        public TestDBContext(string connName)
+            : base($"name={connName}")
         {
         }
 
