@@ -8,10 +8,10 @@ using System.Web.Mvc;
 
 namespace MyWebFoundation.Webserver.Controllers
 {
-    public class TestController : Controller
+    public class EFTestController : Controller
     {
         IUserDepartModule module;
-        public TestController(IUserDepartModule _module)
+        public EFTestController(IUserDepartModule _module)
         {
             module = _module;
         }

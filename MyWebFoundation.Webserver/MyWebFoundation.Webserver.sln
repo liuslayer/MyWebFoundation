@@ -35,6 +35,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dapper", "Dapper", "{1F387D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyWebFoundation.DB.Dapper", "MyWebFoundation.DB.Dapper\MyWebFoundation.DB.Dapper.csproj", "{C1460E31-51CF-4705-A303-12F036752190}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyWebFoundation.SuperSocket", "MyWebFoundation.SuperSocket\MyWebFoundation.SuperSocket.csproj", "{8474712B-DBF9-43BC-AEB7-E6B86DAC4A3E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{C1460E31-51CF-4705-A303-12F036752190}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1460E31-51CF-4705-A303-12F036752190}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1460E31-51CF-4705-A303-12F036752190}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8474712B-DBF9-43BC-AEB7-E6B86DAC4A3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8474712B-DBF9-43BC-AEB7-E6B86DAC4A3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8474712B-DBF9-43BC-AEB7-E6B86DAC4A3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8474712B-DBF9-43BC-AEB7-E6B86DAC4A3E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

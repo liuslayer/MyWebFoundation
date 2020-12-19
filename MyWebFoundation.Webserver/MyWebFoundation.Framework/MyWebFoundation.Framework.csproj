@@ -86,13 +86,14 @@
     <Compile Include="Cache\CustomCache.cs" />
     <Compile Include="Cache\ICache.cs" />
     <Compile Include="Cache\MemoryCache.cs" />
-    <Compile Include="Configs\AppConfig.cs" />
+    <Compile Include="Configs\ConfigFile.cs" />
     <Compile Include="Encrypt\DesEncrypt.cs" />
     <Compile Include="Encrypt\MD5Encrypt.cs" />
     <Compile Include="Encrypt\RsaEncrypt.cs" />
     <Compile Include="ExtendExpression\ExpressionExt.cs" />
     <Compile Include="ExtendExpression\Visitor\ConditionBuilderVisitor.cs" />
     <Compile Include="ExtendExpression\Visitor\NewExpressionVisitor.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Extensions\ValidateExtension.cs" />
     <Compile Include="Extensions\EnumExtension.cs" />
     <Compile Include="Factories\ContainerFactory.cs" />

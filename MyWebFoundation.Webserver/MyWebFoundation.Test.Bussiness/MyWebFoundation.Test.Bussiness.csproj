@@ -34,6 +34,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=1.50.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.50.5\lib\net451\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper.SimpleCRUD, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.SimpleCRUD.2.1.0\lib\net45\Dapper.SimpleCRUD.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -42,7 +48,11 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,9 +64,14 @@
     <Compile Include="DepartmentList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserDepartModule.cs" />
+    <Compile Include="UserDepartService.cs" />
     <Compile Include="UserList.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MyWebFoundation.DB.Dapper\MyWebFoundation.DB.Dapper.csproj">
+      <Project>{c1460e31-51cf-4705-a303-12f036752190}</Project>
+      <Name>MyWebFoundation.DB.Dapper</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MyWebFoundation.DB.EF\MyWebFoundation.DB.EF.csproj">
       <Project>{73fdc41c-8914-4057-bbc4-e1e07d8174c8}</Project>
       <Name>MyWebFoundation.DB.EF</Name>

@@ -1,6 +1,6 @@
 ﻿using MyWebFoundation.DB.Sql.DAL.Extensions;
 using MyWebFoundation.DB.Sql.IDAL;
-using MyWebFoundation.Framework.Config;
+using MyWebFoundation.Framework.Configs;
 using MyWebFoundation.Framework.Extensions;
 using MyWebFoundation.Framework.Models;
 using System;
@@ -26,7 +26,7 @@ namespace MyWebFoundation.DB.Sql.DAL
             Type type = typeof(T);
             string sql = $"{TSqlHelper<T,TKey>.FindSql}{id};";
             T t = null;
-            using (SqlConnection conn = new SqlConnection(AppConfig.SqlServerConnString))
+            using (SqlConnection conn = new SqlConnection(ConfigFile.SqlServerConnString))
             {
                 using (SqlCommand command = new SqlCommand(sql, conn))//释放SqlCommand不会释放SqlConnection
                 {
@@ -50,7 +50,7 @@ namespace MyWebFoundation.DB.Sql.DAL
             Type type = typeof(T);
             string sql = TSqlHelper<T, TKey>.FindAllSql;
             List<T> list = new List<T>();
-            using (SqlConnection conn = new SqlConnection(AppConfig.SqlServerConnString))
+            using (SqlConnection conn = new SqlConnection(ConfigFile.SqlServerConnString))
             {
                 using (SqlCommand command = new SqlCommand(sql, conn))
                 {
@@ -75,7 +75,7 @@ namespace MyWebFoundation.DB.Sql.DAL
             var parameters = propArray.Select(p => new SqlParameter($"@{p.GetColumnName()}", p.GetValue(t) ?? DBNull.Value)).ToArray();
             //必须参数化  否则引号？  或者值里面还有引号
             string sql = $"UPDATE [{type.Name}] SET {columnString} WHERE Id={t.Id}";
-            using (SqlConnection conn = new SqlConnection(AppConfig.SqlServerConnString))
+            using (SqlConnection conn = new SqlConnection(ConfigFile.SqlServerConnString))
             {
                 using (SqlCommand command = new SqlCommand(sql, conn))
                 {
@@ -102,7 +102,7 @@ namespace MyWebFoundation.DB.Sql.DAL
             var parameters = propArray.Select(p => new SqlParameter($"@{p.GetColumnName()}", p.GetValue(t) ?? DBNull.Value)).ToArray();
             //必须参数化  否则引号？  或者值里面还有引号
             string sql = $"INSERT INTO [{type.Name}] {columnString} VALUES {valueString}";
-            using (SqlConnection conn = new SqlConnection(AppConfig.SqlServerConnString))
+            using (SqlConnection conn = new SqlConnection(ConfigFile.SqlServerConnString))
             {
                 using (SqlCommand command = new SqlCommand(sql, conn))
                 {
@@ -119,7 +119,7 @@ namespace MyWebFoundation.DB.Sql.DAL
         {
             Type type = typeof(T);
             string sql = $"DELETE FROM [{type.Name}] WHERE Id={id}";
-            using (SqlConnection conn = new SqlConnection(AppConfig.SqlServerConnString))
+            using (SqlConnection conn = new SqlConnection(ConfigFile.SqlServerConnString))
             {
                 using (SqlCommand command = new SqlCommand(sql, conn))
                 {
@@ -133,7 +133,7 @@ namespace MyWebFoundation.DB.Sql.DAL
 
         public int ExecuteNonQuery(string sql, params SqlParameter[] parameters)
         {
-            using (SqlConnection conn = new SqlConnection(AppConfig.SqlServerConnString))
+            using (SqlConnection conn = new SqlConnection(ConfigFile.SqlServerConnString))
             {
                 conn.Open();
                 using (SqlCommand cmd = conn.CreateCommand())
@@ -151,7 +151,7 @@ namespace MyWebFoundation.DB.Sql.DAL
 
         public object ExecuteScalar(string sql, params SqlParameter[] parameters)
         {
-            using (SqlConnection conn = new SqlConnection(AppConfig.SqlServerConnString))
+            using (SqlConnection conn = new SqlConnection(ConfigFile.SqlServerConnString))
             {
                 conn.Open();
                 using (SqlCommand cmd = conn.CreateCommand())
@@ -166,7 +166,7 @@ namespace MyWebFoundation.DB.Sql.DAL
         //只用来执行查询结果比较少的sql
         public DataTable ExecuteDataTable(string sql, params SqlParameter[] parameters)
         {
-            using (SqlConnection conn = new SqlConnection(AppConfig.SqlServerConnString))
+            using (SqlConnection conn = new SqlConnection(ConfigFile.SqlServerConnString))
             {
                 conn.Open();
                 using (SqlCommand cmd = conn.CreateCommand())
@@ -196,7 +196,7 @@ namespace MyWebFoundation.DB.Sql.DAL
             {
                 return;
             }
-            using (SqlConnection conn = new SqlConnection(AppConfig.SqlServerConnString))
+            using (SqlConnection conn = new SqlConnection(ConfigFile.SqlServerConnString))
             {
                 conn.Open();
                 using (SqlCommand cmd = conn.CreateCommand())

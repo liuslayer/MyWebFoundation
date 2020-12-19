@@ -23,6 +23,12 @@ namespace MyWebFoundation.Webserver
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             ControllerBuilder.Current.SetControllerFactory(new MyControllerFactory());
             this.GetType().Info(System.Reflection.MethodBase.GetCurrentMethod().Name, "程序启动");
+            //SuperSocketBootstrap.Startup();
+        }
+
+        protected void Application_End()
+        {
+            this.GetType().Info(System.Reflection.MethodBase.GetCurrentMethod().Name, "程序退出");
         }
     }
 }

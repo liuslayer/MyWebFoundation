@@ -19,6 +19,10 @@ namespace MyWebFoundation.Webserver.Controllers
         /// <returns></returns>
         protected override IController GetControllerInstance(RequestContext requestContext, Type controllerType)
         {
+            if (controllerType == null)
+            {
+                return base.GetControllerInstance(requestContext, controllerType);
+            }
             return (IController)ContainerFactory.CreateContainer().Resolve(controllerType);
 
             //return base.GetControllerInstance(requestContext, controllerType);
