@@ -253,9 +253,9 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MyWebFoundation.DB.Dapper\MyWebFoundation.DB.Dapper.csproj">
-      <Project>{c1460e31-51cf-4705-a303-12f036752190}</Project>
-      <Name>MyWebFoundation.DB.Dapper</Name>
+    <ProjectReference Include="..\MyWebFoundation.DB\MyWebFoundation.DB.csproj">
+      <Project>{60328c4c-2654-4c23-9cb3-74570c3f3db9}</Project>
+      <Name>MyWebFoundation.DB</Name>
     </ProjectReference>
     <ProjectReference Include="..\MyWebFoundation.Framework\MyWebFoundation.Framework.csproj">
       <Project>{00872321-2a9f-4ab5-8924-126b7eccbf21}</Project>

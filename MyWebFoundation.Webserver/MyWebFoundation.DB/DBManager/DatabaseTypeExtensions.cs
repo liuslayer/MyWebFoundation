@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyWebFoundation.DB.Dapper
+namespace MyWebFoundation.DB
 {
     internal static class DatabaseTypeExtensions
     {

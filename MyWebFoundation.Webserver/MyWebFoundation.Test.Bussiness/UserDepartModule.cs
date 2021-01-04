@@ -7,28 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MyWebFoundation.Framework.Extensions;
+using MyWebFoundation.DB.EF;
 
 namespace MyWebFoundation.Test.Bussiness
 {
-    internal class UserDepartModule : IUserDepartModule
+    internal class UserDepartModule : BaseEntities, IUserDepartModule
     {
 
         public UserDepartModule()
+            : base(new TestDBContext("TestDBContext"))
         {
-            Context = new TestDBContext("TestDBContext");
-            DepartmentList = new DepartmentList(Context);
-            UserList = new UserList(Context);
         }
-        protected DbContext Context { get; private set; }
-        public IDepartmentList DepartmentList { get; private set; }
-        public IUserList UserList { get; private set; }
 
         public tb_Department GetDepartAssembleByDepartId(int id)
         {
             try
             {
-                tb_Department department = DepartmentList.Find(id);
-                List<tb_User> userList = UserList.Query(_ => _.DepartmentId == id).ToList();
+                tb_Department department = base.Find<tb_Department>(id);
+                List<tb_User> userList = base.Query<tb_User>(_ => _.DepartmentId == id).ToList();
                 department.tb_Users = userList;
                 return department;
             }

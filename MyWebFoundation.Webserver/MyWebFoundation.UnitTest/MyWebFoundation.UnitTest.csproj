@@ -102,10 +102,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MyWebFoundation.DB.EF\MyWebFoundation.DB.EF.csproj">
-      <Project>{73fdc41c-8914-4057-bbc4-e1e07d8174c8}</Project>
-      <Name>MyWebFoundation.DB.EF</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MyWebFoundation.Framework\MyWebFoundation.Framework.csproj">
       <Project>{00872321-2a9f-4ab5-8924-126b7eccbf21}</Project>
       <Name>MyWebFoundation.Framework</Name>

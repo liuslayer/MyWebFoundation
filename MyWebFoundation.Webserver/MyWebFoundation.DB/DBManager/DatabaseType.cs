@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyWebFoundation.DB.Dapper
+namespace MyWebFoundation.DB
 {
     /// <summary>
     /// Database type, SQLServer\ Oracle \ PostgreSQL \ other's database

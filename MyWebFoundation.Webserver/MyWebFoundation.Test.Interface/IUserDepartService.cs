@@ -1,4 +1,5 @@
-﻿using MyWebFoundation.DB.Dapper;
+﻿using MyWebFoundation.DB;
+using MyWebFoundation.DB.Dapper;
 using MyWebFoundation.Test.Data;
 using System;
 using System.Collections.Generic;

@@ -188,5 +188,13 @@ namespace MyWebFoundation.DB.Dapper
         {
             return SimpleCRUD.SequentialGuid();
         }
+
+        public virtual void Dispose()
+        {
+            if (this.DBManager != null)
+            {
+                this.DBManager.Dispose();
+            }
+        }
     }
 }

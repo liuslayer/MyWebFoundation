@@ -5,7 +5,7 @@ using Dapper;
 using MyWebFoundation.Framework.Configs;
 using MyWebFoundation.Framework.Extensions;
 
-namespace MyWebFoundation.DB.Dapper
+namespace MyWebFoundation.DB
 {
     public class DbManager : IDisposable
     {

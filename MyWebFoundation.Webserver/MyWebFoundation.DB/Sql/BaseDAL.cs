@@ -15,33 +15,37 @@ namespace MyWebFoundation.DB.Sql
 {
     public class BaseDAL : IBaseDAL
     {
+        public DbManager DBManager { get; private set; }
+
+        public BaseDAL(DbManager dbManager)
+        {
+            this.DBManager = dbManager;
+        }
 
         /// <summary>
         /// 约束是为了正确的调用，才能int id
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="id"></param>
-        public T Find<T,TKey>(int id) where T : BaseModel<TKey>
+        public T Find<T, TKey>(int id) where T : BaseModel<TKey>
         {
             Type type = typeof(T);
-            string sql = $"{TSqlHelper<T,TKey>.FindSql}{id};";
+            string sql = $"{TSqlHelper<T, TKey>.FindSql}{id};";
             T t = null;
-            using (SqlConnection conn = new SqlConnection(ConfigFile.SqlServerConnString))
+            SqlConnection conn = DBManager.Connection as SqlConnection;
+            using (SqlCommand command = new SqlCommand(sql, conn))//释放SqlCommand不会释放SqlConnection
             {
-                using (SqlCommand command = new SqlCommand(sql, conn))//释放SqlCommand不会释放SqlConnection
-                {
-                    conn.Open();
-                    SqlDataReader reader = command.ExecuteReader();
-                    List<T> list = this.ReaderToList<T, TKey>(reader);
-                    t = list.FirstOrDefault();
-                }
-                //SqlDataAdapter adapter = new SqlDataAdapter(command);
-                //DataSet ds = new DataSet();
-                //adapter.Fill(ds);
-                //DataTable dt = ds.Tables[0];
-                //List<T> list = this.ReaderToList<T>(dt);
-                //t = list.FirstOrDefault();
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                List<T> list = this.ReaderToList<T, TKey>(reader);
+                t = list.FirstOrDefault();
             }
+            //SqlDataAdapter adapter = new SqlDataAdapter(command);
+            //DataSet ds = new DataSet();
+            //adapter.Fill(ds);
+            //DataTable dt = ds.Tables[0];
+            //List<T> list = this.ReaderToList<T>(dt);
+            //t = list.FirstOrDefault();
             return t;
         }
 
@@ -50,14 +54,12 @@ namespace MyWebFoundation.DB.Sql
             Type type = typeof(T);
             string sql = TSqlHelper<T, TKey>.FindAllSql;
             List<T> list = new List<T>();
-            using (SqlConnection conn = new SqlConnection(ConfigFile.SqlServerConnString))
+            SqlConnection conn = DBManager.Connection as SqlConnection;
+            using (SqlCommand command = new SqlCommand(sql, conn))
             {
-                using (SqlCommand command = new SqlCommand(sql, conn))
-                {
-                    conn.Open();
-                    SqlDataReader reader = command.ExecuteReader();
-                    list = this.ReaderToList<T, TKey>(reader);
-                }
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                list = this.ReaderToList<T, TKey>(reader);
             }
             return list;
         }
@@ -214,6 +216,14 @@ namespace MyWebFoundation.DB.Sql
 
                     }
                 }
+            }
+        }
+
+        public virtual void Dispose()
+        {
+            if (this.DBManager != null)
+            {
+                this.DBManager.Dispose();
             }
         }
 

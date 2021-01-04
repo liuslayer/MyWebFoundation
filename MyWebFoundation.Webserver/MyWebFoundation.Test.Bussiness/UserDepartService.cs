@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using MyWebFoundation.DB;
 using MyWebFoundation.DB.Dapper;
 using MyWebFoundation.Framework.Extensions;
 using MyWebFoundation.Test.Data;
@@ -31,7 +32,6 @@ namespace MyWebFoundation.Test.Bussiness
                     temp= base.DBManager.Connection.Get<tb_Department>(newId.Value);
                     user.DepartmentId = newId.Value;
                     newId = base.Insert(user);
-                    throw new Exception("test trans");
                     if (tran != null)
                     {
                         tran.Complete();

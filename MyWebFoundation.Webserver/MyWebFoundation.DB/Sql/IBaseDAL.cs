@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MyWebFoundation.DB.Sql
 {
-    public interface IBaseDAL
+    public interface IBaseDAL : IDisposable
     {
 
         /// <summary>

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyWebFoundation.DB.Dapper
+namespace MyWebFoundation.DB
 {
     public sealed class ScopeTransaction : IScopeTransaction, IDbTransaction
     {

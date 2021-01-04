@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyWebFoundation.DB.Dapper
+namespace MyWebFoundation.DB
 {
     [AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
     public class ProviderNameAttribute : Attribute

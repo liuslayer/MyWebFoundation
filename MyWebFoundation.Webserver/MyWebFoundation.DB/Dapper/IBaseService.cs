@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MyWebFoundation.DB.Dapper
 {
-    public interface IBaseService
+    public interface IBaseService : IDisposable
     {
         IScopeTransaction CreateScopeTransaction();
 

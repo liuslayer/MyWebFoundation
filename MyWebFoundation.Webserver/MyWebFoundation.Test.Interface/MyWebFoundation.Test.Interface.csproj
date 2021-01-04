@@ -41,20 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IDepartmentList.cs" />
     <Compile Include="IUserDepartModule.cs" />
     <Compile Include="IUserDepartService.cs" />
-    <Compile Include="IUserList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MyWebFoundation.DB.Dapper\MyWebFoundation.DB.Dapper.csproj">
-      <Project>{c1460e31-51cf-4705-a303-12f036752190}</Project>
-      <Name>MyWebFoundation.DB.Dapper</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MyWebFoundation.DB.EF\MyWebFoundation.DB.EF.csproj">
-      <Project>{73fdc41c-8914-4057-bbc4-e1e07d8174c8}</Project>
-      <Name>MyWebFoundation.DB.EF</Name>
+    <ProjectReference Include="..\MyWebFoundation.DB\MyWebFoundation.DB.csproj">
+      <Project>{60328c4c-2654-4c23-9cb3-74570c3f3db9}</Project>
+      <Name>MyWebFoundation.DB</Name>
     </ProjectReference>
     <ProjectReference Include="..\MyWebFoundation.Test.Data\MyWebFoundation.Test.Data.csproj">
       <Project>{9d5a07f2-4195-4ab9-9483-717c82644400}</Project>
