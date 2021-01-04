@@ -9,8 +9,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{839B53
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyWebFoundation.Framework", "MyWebFoundation.Framework\MyWebFoundation.Framework.csproj", "{00872321-2A9F-4AB5-8924-126B7ECCBF21}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DB", "DB", "{DE57239C-118D-43EE-80E5-B48D7915E776}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyWebFoundation.UnitTest", "MyWebFoundation.UnitTest\MyWebFoundation.UnitTest.csproj", "{DBD5E9E9-7CB9-4965-BA8F-347F90155F83}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bussiness", "Bussiness", "{7CEA7085-5C0F-47BD-A15B-CF910A9B52F3}"
